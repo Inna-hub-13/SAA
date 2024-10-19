@@ -26,8 +26,7 @@ struct queue* find_position(struct queue **, int);
 int main() {
 
     struct queue* head = NULL;
-    int rank;
-
+    
     insert(&head, "wash the dishes", 1);
     insert(&head, "do homework", 0);
     insert(&head, "walk the dog", 4);
