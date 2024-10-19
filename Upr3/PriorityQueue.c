@@ -27,7 +27,6 @@ int main() {
 
     struct queue* head = NULL;
     int rank;
-    char task[N];
 
     insert(&head, "wash the dishes", 1);
     insert(&head, "do homework", 0);
