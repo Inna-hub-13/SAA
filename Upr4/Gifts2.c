@@ -49,6 +49,7 @@ int separate(int* gifts, int gifts_size, int* gift1, int* gift2) {
     
     *gift1 = j;
     *gift2 = sum - j;
+    return 0;
 }
 
 int separate2(int* gifts, int gifts_size) {
@@ -79,5 +80,6 @@ int separate2(int* gifts, int gifts_size) {
     
     printf("\n");
     printf("The other person gets the left gifts");
+    return 0;
 }
 
