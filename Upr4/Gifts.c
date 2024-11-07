@@ -4,7 +4,7 @@
 // Separate the gifts among two people, so that they have equal or almost equal
 // value of presents.
 
-// Dynamic programminc
+// Dynamic programming
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -65,5 +65,5 @@ void separate_gifts(int* gifts, int size) {
         j--;
     
     printf("\nGift value for the first %d\n", j);
-    printf("Gift value for the seconds %d\n", total - j);
+    printf("Gift value for the second %d\n", total - j);
 }
