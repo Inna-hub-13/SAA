@@ -1,0 +1,40 @@
+
+For 1000 elements
+Selection Sort time: 0.000000
+Insertion Sort time: 0.000000
+Bubble Sort time: 0.000000
+Bubble Sort Flag time: 15.000000
+Quick Sort time: 16.000000
+
+
+For 2000 elements
+Selection Sort time: 0.000000
+Insertion Sort time: 0.000000
+Bubble Sort time: 15.000000
+Bubble Sort Flag time: 16.000000
+Quick Sort time: 0.000000
+
+
+For 3000 elements
+Selection Sort time: 16.000000
+Insertion Sort time: 0.000000
+Bubble Sort time: 16.000000
+Bubble Sort Flag time: 15.000000
+Quick Sort time: 16.000000
+
+
+For 5000 elements
+Selection Sort time: 31.000000
+Insertion Sort time: 31.000000
+Bubble Sort time: 63.000000
+Bubble Sort Flag time: 62.000000
+Quick Sort time: 47.000000
+
+
+For 10000 elements
+Selection Sort time: 93.000000
+Insertion Sort time: 63.000000
+Bubble Sort time: 250.000000
+Bubble Sort Flag time: 219.000000
+Quick Sort time: 218.000000
+
