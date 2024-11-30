@@ -177,9 +177,7 @@ int pop(struct stack** top, struct node** node) {
 void preorder_iteration(struct node* root) {
 
     struct stack* top = NULL;
-    struct node* temp_node = (struct node*)malloc(sizeof(struct node));
-    if(!temp_node)
-        return;
+    struct node* temp_node;
 
     if(root)
         push(&top, root);
