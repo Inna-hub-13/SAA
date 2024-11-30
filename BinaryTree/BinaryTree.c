@@ -1,7 +1,5 @@
 // Some functions for binary tree
 
-// 28.11 2024 - more functions to add, in progress
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -14,13 +12,13 @@ struct node{
 
 struct stack{
 
-    struct node n;
+    struct node* node;
     struct stack* prev;
 };
 
 void create_tree(struct node**, char*);
 void preorder(const struct node*);
-void preorder_iteration(const struct node*);
+void preorder_iteration(struct node*);
 void inorder(const struct node*);
 void postorder(const struct node*);
 int power(const struct node*);
@@ -28,7 +26,7 @@ int max_el(int, int);
 int depth(const struct node*);
 
 int push(struct stack**, struct node*);
-int pop(struct stack**, struct node*);
+int pop(struct stack**, struct node**);
 
 int main() {
 
@@ -36,8 +34,14 @@ int main() {
     struct node* root = NULL;
 
     create_tree(&root, &x);
+
+    printf("Preorder: ");
     preorder(root);
     printf("\n");
+    printf("Preorder_iteration: ");
+    preorder_iteration(root);
+    printf("\n");
+
     inorder(root);
     printf("\n");
     postorder(root);
@@ -146,32 +150,51 @@ int depth(const struct node* root) {
     return 1 + max_el(depth(root->left), depth(root->right));
 }
 
-int push(struct stack** top, struct node* n) {
+int push(struct stack** top, struct node* node) {
 
     struct stack* temp = (struct stack*)malloc(sizeof(struct stack));
     if(!temp)
         return -1;
-
-    temp -> prev = *top;
+    
+    temp->prev = *top;
     *top = temp;
-    temp->n = *n;
+    temp->node = node;
     return 0;
 }
 
-int pop(struct stack** top, struct node* n) {
+int pop(struct stack** top, struct node** node) {
 
     if(!(*top))
-        return NULL;
-
+        return -1;
+    
     struct stack* temp = *top;
-    *top = temp->prev;
-    *n = temp->n;
+    *top = (*top)->prev;
+    *node = temp->node;
     free(temp);
     return 0;
 }
 
-void preorder_iteration(const struct node* root) {
+void preorder_iteration(struct node* root) {
 
     struct stack* top = NULL;
-    
+    struct node* temp_node = (struct node*)malloc(sizeof(struct node));
+    if(!temp_node)
+        return;
+
+    if(root)
+        push(&top, root);
+    else 
+        return;
+
+    while(top){
+
+        pop(&top, &temp_node);
+        printf("%c ", temp_node -> value);
+
+        if(temp_node->right)
+            push(&top, temp_node->right);
+        
+        if(temp_node->left)
+            push(&top, temp_node->left);
+    }
 }
