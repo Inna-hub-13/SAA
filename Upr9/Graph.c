@@ -58,7 +58,7 @@ int main() {
     printf("out = %d\n", out);
     printf("loop_edges = %d\n", loop_edges);
 
-    int* adjacent;
+    int* adjacent = NULL;
     int count = find_adjacent((int*)undirected, &adjacent, N, 5);
 
     if(adjacent)
