@@ -156,7 +156,7 @@ int find_adjacent(int* G, int** arr, int n, int vertex) {
 
 void dfs(int* G, int* visited, int n, int vertex) {
 
-    visited[vertex] = 1;
+    *(visited + vertex) = 1;
     printf("%d -> ", vertex + 1);
     int i;
     for(i = 0; i < n; i++)
