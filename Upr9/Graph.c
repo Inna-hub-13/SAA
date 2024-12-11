@@ -11,6 +11,7 @@ int in_edges(int*, int, int);
 int out_edges(int*, int, int);
 int find_loop_edges(int*, int);
 int find_adjacent(int*, int**, int, int);
+void dfs(int*, int*, int, int);
 
 int main() {
 
@@ -66,6 +67,12 @@ int main() {
             printf("%d ", *(adjacent + i));
     
     printf("\n");
+
+    int* visited = (int*)calloc(N, sizeof(int));
+    if(!visited)
+        return -1;
+    
+    dfs((int*)undirected, visited, N, 2);
 
     return 0;
 }
@@ -147,4 +154,13 @@ int find_adjacent(int* G, int** arr, int n, int vertex) {
     return count;
 }
 
+void dfs(int* G, int* visited, int n, int vertex) {
+
+    visited[vertex] = 1;
+    printf("%d -> ", vertex + 1);
+    int i;
+    for(i = 0; i < n; i++)
+        if(*(G + vertex * n + i) && !*(visited + i))
+            dfs(G, visited, n, i);
+}
 
