@@ -40,12 +40,8 @@ int addAtBeg(list** ptrBeg, int x, int y){
 
         temp->x = x;
         temp->y= y;
-
-    // Check the first element
-    if(!(*ptrBeg))
-        temp->next = NULL;
-    else
-        temp->next = (*ptrBeg);
+    
+    temp->next = (*ptrBeg);
 
     *ptrBeg = temp;
     return 0;
